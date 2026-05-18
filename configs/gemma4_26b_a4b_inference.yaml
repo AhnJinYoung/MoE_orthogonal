@@ -1,0 +1,20 @@
+model:
+  model_id: google/gemma-4-26B-A4B-it
+  trust_remote_code: true
+  dtype: bfloat16
+  device_map: auto
+
+aggregation:
+  mode: standard
+  eps: 1.0e-6
+
+data:
+  dataset_name: Salesforce/wikitext
+  dataset_config: wikitext-103-raw-v1
+  split: validation
+  text_column: text
+
+eval:
+  prompt: "The future of sparse MoE models is"
+  seq_len: 1024
+  max_eval_tokens: 32768
